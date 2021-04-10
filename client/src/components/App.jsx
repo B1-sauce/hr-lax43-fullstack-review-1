@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import List from './List.jsx';
+import Add from './Add.jsx'
+import Random from './Random.jsx'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -45,7 +47,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Add />
-          <button value='home'>Back</button>
+          <button value='home' onClick={this.changepage}>Back</button>
         </div>
       )
     } else if (this.state.page === 'list') {
@@ -58,8 +60,8 @@ export default class App extends React.Component {
     } else if (this.state.page === 'random') {
       return (
         <div>
-          <Random />
-          <button value='home'>Back</button>
+          <Random students={this.state.studentlist}/>
+          <button value='home' onClick={this.changepage}>Back</button>
         </div>
       )
     } else {
@@ -67,7 +69,7 @@ export default class App extends React.Component {
         <div>
           <button value='add' onClick={this.changepage}>Add Student</button>
           <button value='list' onClick={this.changepage} >List Students</button>
-          <button value='random'>Random Student</button>
+          <button value='random' onClick={this.changepage}>Random Student</button>
         </div>
       )
     }

@@ -10,6 +10,7 @@ const port = 3000;
 server.use(morgan('dev'));
 server.use(bodyparser.json());
 server.use(bodyparser.urlencoded({ extended: true }));
+server.use('/api', router)
 
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
